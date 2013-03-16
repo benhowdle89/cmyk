@@ -4,7 +4,8 @@
  */
 
 Meteor.methods({
-  saveFile: function(blob, name, path, encoding) {
-    Items.insert({image : blob});
+  saveFile: function(blob, title) {
+    var user = Meteor.user();
+    Items.insert({image : blob, userId: Meteor.userId(), title: title, username: user.profile.name, timestamp: Date.now()});
   }
 });

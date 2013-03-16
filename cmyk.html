@@ -10,12 +10,15 @@
 </body>
 
 <template name="example">
+<input id="title" />
 <input id="file" type=file />
 <button>Submit</button>
 </template>
 
 <template name="items">
 	{{#each items}}
+		<h3>title: {{title}}</h3>
+		<p>from: {{username}}</p>
 		<img src="{{image}}" />
 	{{/each}}
 </template>
