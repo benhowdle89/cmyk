@@ -1,14 +1,22 @@
-if(Meteor.isClient) {
+var Items = new Meteor.Collection("Items");
+
+if (Meteor.isClient) {
   Template.example.events({
-    'change input': function(ev) {
-      _.each(ev.srcElement.files, function(file) {
+    'click button': function() {
+      var files = document.getElementById('file');
+      _.each(files.files, function(file) {
         Meteor.saveFile(file, file.name);
       });
     }
   });
+
+  Template.items.items = function() {
+    return Items.find({}, {});
+  };
+
 }
 
-if(Meteor.isServer) {
+if (Meteor.isServer) {
   Meteor.startup(function() {
     // code to run on server at startup
   });

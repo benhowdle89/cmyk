@@ -4,10 +4,18 @@
 
 <body>
   {{> example}}
+  <br />
+  {{> items}}
   {{loginButtons}}
 </body>
 
 <template name="example">
-<input type=file />
+<input id="file" type=file />
+<button>Submit</button>
 </template>
 
+<template name="items">
+	{{#each items}}
+		<img src="{{image}}" />
+	{{/each}}
+</template>
