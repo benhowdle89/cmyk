@@ -20,8 +20,10 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.item.item = function() {
-    Items.findOne(Session.get("pId"));
+  Template.item.items = function() {
+    return Items.find({
+      _id: Session.get("pId")
+    }, {});
   };
 
   Template.all.items = function() {
@@ -33,10 +35,10 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function() {
     // code to run on server at startup
-    Items.allow({
-      'insert': function(){
-        return true;
-      }
-    });
+  });
+  Items.allow({
+    'insert': function(userId, doc){
+      return true;
+    }
   });
 }

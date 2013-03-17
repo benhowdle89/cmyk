@@ -12,8 +12,10 @@
 </template>
 
 <template name="item">
+	{{#each items}}
 	<h3>title: {{title}}</h3>
 	<img src="{{image}}" />
+	{{/each}}
 </template>
 
 <template name="create">
