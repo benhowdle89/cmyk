@@ -26,6 +26,22 @@ if (Meteor.isClient) {
     }, {});
   };
 
+  Template.item.rendered = function() {
+    var disqus_shortname = 'cmykim';
+    var disqus_identifier = 'myident';
+
+    function loadDisqus() {
+      (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    }
+    loadDisqus();
+  };
+
   Template.all.items = function() {
     return Items.find({}, {});
   };
@@ -37,7 +53,7 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
   Items.allow({
-    'insert': function(userId, doc){
+    'insert': function(userId, doc) {
       return true;
     }
   });

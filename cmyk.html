@@ -3,19 +3,30 @@
 </head>
 
 <body>
+	{{>top}}
 	{{renderPage}}
 </body>
 
+<template name="top">
+	<h1><a href="/">CMYK</a></h1>
+</template>
+
 <template name="home">
-  <h1>CMYK</h1>
   <a href="/create">Create</a>
+  <a href="/all">All</a>
 </template>
 
 <template name="item">
 	{{#each items}}
 	<h3>title: {{title}}</h3>
 	<img src="{{image}}" />
+	{{>disqus}}
+    
 	{{/each}}
+</template>
+
+<template name="disqus">
+	<div id="disqus_thread"></div>
 </template>
 
 <template name="create">
@@ -26,6 +37,6 @@
 
 <template name="all">
 	{{#each items}}
-	<h3>{{title}}</h3>
+	<h3><a href="/p/{{_id}}">{{title}}</a></h3>
 	{{/each}}
 </template>
