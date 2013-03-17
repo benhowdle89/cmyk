@@ -1,24 +1,29 @@
 <head>
-  <title>cmyk</title>
+	<title>cmyk</title>
 </head>
 
 <body>
-  {{> example}}
-  <br />
-  {{> items}}
-  {{loginButtons}}
+	{{renderPage}}
 </body>
 
-<template name="example">
-<input id="title" />
-<input id="file" type=file />
-<button>Submit</button>
+<template name="home">
+  <h1>CMYK</h1>
+  <a href="/create">Create</a>
 </template>
 
-<template name="items">
+<template name="item">
+	<h3>title: {{title}}</h3>
+	<img src="{{image}}" />
+</template>
+
+<template name="create">
+	<input id="title" />
+	<input id="file" type=file />
+	<button>Submit</button>
+</template>
+
+<template name="all">
 	{{#each items}}
-		<h3>title: {{title}}</h3>
-		<p>from: {{username}}</p>
-		<img src="{{image}}" />
+	<h3>{{title}}</h3>
 	{{/each}}
 </template>
