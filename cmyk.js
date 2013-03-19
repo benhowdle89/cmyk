@@ -28,7 +28,7 @@ if (Meteor.isClient) {
 
   Template.item.rendered = function() {
     var disqus_shortname = 'cmykim';
-    var disqus_identifier = 'myident';
+    var disqus_identifier = window.location.pathname;
 
     function loadDisqus() {
       (function() {
