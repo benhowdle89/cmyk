@@ -1,32 +1,82 @@
 <head>
-	<title>cmyk</title>
+	<title>CMYK</title>
+	<meta name="description" content="Upload, share, get feedback">
 </head>
 
 <body>
-	{{>top}}
 	{{renderPage}}
 </body>
 
-<template name="top">
-	<h1><a href="/">CMYK</a></h1>
-</template>
-
 <template name="home">
-  {{>create}}
-  <a href="/all">All</a>
+	<div id="wrap">
+	    <div id="contain">
+	      <div id="box">
+	        <header id="logo">
+	          <h1><a href="/cmyk">cmyk</a></h1>
+	        </header>
+	        <p>Upload, share, get feedback</p>
+	        <form id="create">
+	          <div class="deets">
+	            <div class="text">
+	              <input type="text" id="title" name="title" placeholder="Title" />
+	            </div>
+	            <div class="text">
+	              <input type="text" id="description" name="description" placeholder="What are your thoughts?" />
+	            </div>
+	          </div>
+	          <div class="interact">
+	            <div class="upload">
+	              <input type="file" name="file" id="file" />
+	              <a class="button ui grey"><i></i>Upload</a>
+	              <div class="preview"><i></i></div>
+	            </div>
+	            <input type="submit" id="submit" class="ui green" />
+	          </div>
+	        </form>
+	        <footer>
+	          <p>We are not responsible for any copyright disputes that may occur
+	          as a result of uploading. All content belongs to the user.</p>
+	          <p>Made by <a href="//twitter.com/benhowdle">Ben Howdle</a>
+	          and <a href="//twitter.com/daryl">Daryl Ginn</a>.</p>
+	        </footer>
+	      </div>
+	    </div>
+	</div>
 </template>
 
 <template name="item">
 	{{#each items}}
+	<p>{{views}}</p>
 	<h3>title: {{title}}</h3>
+	<p>{{date timestamp}}</p>
 	<img src="{{image}}" />
-	{{>disqus}}
+	<br />
+	<label>Comment</label>
+	{{#if currentUser}}
+
+	{{else}}
+		<p>Display full name with comment?</p>
+	{{/if}}
+
+	{{loginButtons}}
+	<input id="newComment" />
+	<button id="submitComment">Submit</button>
+
+		{{#if comments}}
+		<div id="comments">
+			{{#each comments}}
+				{{#if name}}
+					{{name}}
+				{{else}}
+					Anonymous
+				{{/if}}
+				<p>{{content}}</p>
+				<p>{{date timestamp}}</p>
+			{{/each}}
+		</div>
+		{{/if}}
     
 	{{/each}}
-</template>
-
-<template name="disqus">
-	<div id="disqus_thread"></div>
 </template>
 
 <template name="create">

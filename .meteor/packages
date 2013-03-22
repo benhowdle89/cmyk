@@ -7,3 +7,6 @@ autopublish
 insecure
 preserve-inputs
 router
+jquery
+accounts-twitter
+accounts-ui
