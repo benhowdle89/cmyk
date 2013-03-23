@@ -44,6 +44,7 @@ if (Meteor.isClient) {
       var input = $('#newComment');
       if (input.val().length) {
         Meteor.saveComment(input.val(), this._id);
+        input.val('');
       }
     }
   });
@@ -135,7 +136,7 @@ if (Meteor.isClient) {
         updatePreview: function(uri) {
           if (!this.previmg) this.buildPreview();
           this.previmg.attr('src', uri);
-          if (!this.added && (this.added == 1)) {
+          if (!this.added && (this.added = 1)) {
             this.preview.parent().show().addClass('new');
           }
         },
@@ -144,9 +145,7 @@ if (Meteor.isClient) {
         }
       };
 
-      $(function() {
-        Upload.init();
-      });
+      Upload.init();
 
     })(window, document);
 
@@ -165,6 +164,18 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function() {
     // code to run on server at startup
+    Meteor.publish("items", function(id) {
+      return Items.find({
+        _id: id
+      });
+    });
+
+    Meteor.publish("comments", function(id) {
+      return Comments.find({
+        itemId: id
+      });
+    });
+
   });
   Items.allow({
     'insert': function(userId, doc) {
@@ -172,6 +183,18 @@ if (Meteor.isServer) {
     },
     'update': function(userId, doc) {
       return true;
+    },
+    'remove': function(userId, doc) {
+      return true;
     }
+  });
+}
+
+if (Meteor.isClient) {
+  Meteor.autorun(function() {
+    Meteor.subscribe("items", Session.get("pId"));
+  });
+  Meteor.autorun(function() {
+    Meteor.subscribe("comments", Session.get("pId"));
   });
 }
