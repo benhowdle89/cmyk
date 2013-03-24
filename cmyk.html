@@ -71,22 +71,10 @@
 					Anonymous
 				{{/if}}
 				<p>{{content}}</p>
-				<p>{{date timestamp}}</p>
+				<p class="comment-date" data-time="{{timestamp}}">{{date timestamp}}</p>
 			{{/each}}
 		</div>
 		{{/if}}
     
-	{{/each}}
-</template>
-
-<template name="create">
-	<input id="title" />
-	<input id="file" type=file />
-	<button>Submit</button>
-</template>
-
-<template name="all">
-	{{#each items}}
-	<h3><a href="/p/{{_id}}">{{title}}</a></h3>
 	{{/each}}
 </template>

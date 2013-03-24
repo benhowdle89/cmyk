@@ -16,8 +16,7 @@ if (Meteor.isClient) {
         }
       });
       return 'item';
-    },
-    '/all': 'all'
+    }
   });
 
   Template.home.events({
@@ -153,10 +152,13 @@ if (Meteor.isClient) {
 
   Template.item.rendered = function() {
     $('html').removeClass('index');
-  };
-
-  Template.all.items = function() {
-    return Items.find({}, {});
+    setInterval(function() {
+      $('.comment-date').each(function() {
+        var cDate = $(this);
+        var newDate = timeDifference(Date.now(), cDate.attr('data-time'));
+        cDate.text(newDate);
+      });
+    }, 1000);
   };
 
 }
