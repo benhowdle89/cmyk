@@ -1,0 +1,35 @@
+<template name="item">
+  {{#each items}}
+  <p>{{views}}</p>
+  <h3>title: {{title}}</h3>
+  <p>{{date timestamp}}</p>
+  <img src="{{image}}" />
+  <br />
+  <p>{{description}}</p>
+  <label>Comment</label>
+  {{#if currentUser}}
+
+  {{else}}
+    <p>Display full name with comment?</p>
+  {{/if}}
+
+  {{loginButtons}}
+  <input id="newComment" />
+  <button id="submitComment">Submit</button>
+
+    {{#if comments}}
+    <div id="comments">
+      {{#each comments}}
+        {{#if name}}
+          {{name}}
+        {{else}}
+          Anonymous
+        {{/if}}
+        <p>{{content}}</p>
+        <p class="comment-date" data-time="{{timestamp}}">{{date timestamp}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+
+  {{/each}}
+</template>

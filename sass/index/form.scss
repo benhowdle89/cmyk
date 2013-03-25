@@ -1,0 +1,105 @@
+/*====================================*\
+  @ Base / Details
+\*====================================*/
+
+.new {
+  .base {
+    @extend .clear;
+    #submit { width: auto; float: right; }
+  }
+  .details {
+    margin: 0 0 20px;
+    border-radius: 3px;
+    border: 1px solid $border;
+    border-top-color: darken($border, 8%);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.05),
+                inset 0 1px 1px rgba(0,0,0,0.05);
+    fieldset {
+      border-bottom: 1px solid $faint;
+      input {
+        height: 39px;
+        padding: 10px 10px;
+        line-height: auto;
+        background: transparent; }
+        + fieldset { border: 0; }
+    }
+  }
+}
+
+/*====================================*\
+  @ Upload
+\*====================================*/
+
+.new {
+  .upload {
+    @extend .clear;
+    position: relative;
+    float: left;
+    #file {
+      position: absolute;
+      top: -200px; opacity: 0; }
+    button {
+      padding-left: 35px;
+      position: relative;
+      margin: 0 10px 0 0;
+      float: left;
+      i {
+        width: 17px;
+        height: 18px;
+        position: absolute;
+        top: 10px; left: 10px;
+        background: $sprite;
+        display: block; }
+    }
+  }
+}
+
+/*====================================*\
+  @ Upload preview
+\*====================================*/
+
+.new {
+  .preview, .preview .icon {
+    width: 37px;
+    height: 37px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle; }
+  .preview {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    display: none;
+    float: left;
+    .icon {
+      display: table-cell;
+      img {
+        max-width: 37px;
+        max-height: 37px;
+        vertical-align: middle; }
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0;
+      bottom: 0; left: 0;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+      border-radius: 3px; }
+    &.new {
+      @include vendor(animation,
+      preview 0.4s 0.3s both ease-in-out); }
+  }
+}
+
+/*====================================*\
+  @ Preview keyframes
+\*====================================*/
+
+@-webkit-keyframes preview {
+  0%  { opacity: 0;  -webkit-transform: scale(0);    }
+  75% { opacity: 1;  -webkit-transform: scale(1.05); }
+  90% { opacity: 1;  -webkit-transform: scale(0.92); }
+  100% { opacity: 1; -webkit-transform: scale(1);    }
+}

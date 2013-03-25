@@ -1,0 +1,61 @@
+<template name="home">
+  <div class="table">
+      <div class="cell">
+        <div class="inner">
+          <div class="header">
+            <!-- Logo -->
+            <header class="logo">
+              <h1><a href="/cmyk">cmyk</a></h1>
+            </header>
+            <!-- Vague motto -->
+            <p>Get feedback on your work</p>
+            <!-- Circular icons -->
+            <div class="icons">
+              <!-- Upload -->
+              <div class="upload circle">
+                <div class="image"><span></span></div>
+                <div class="arrow a"></div>
+                <div class="arrow b small"></div>
+                <div class="arrow c"></div>
+                <div class="arrow d tiny"></div>
+                <div class="arrow e small"></div>
+                <div class="arrow f"></div>
+                <div class="arrow g tiny"></div>
+                <div class="arrow h small"></div>
+              </div>
+              <!-- Share -->
+              <div class="share circle">
+                <div class="label">share</div>
+                <div class="hand"></div>
+              </div>
+              <!-- Feedback -->
+              <div class="feedback circle">
+
+              </div>
+            </div>
+          </div>
+          <!-- Upload -->
+          <form class="new">
+            <div class="details">
+              <fieldset><input id="title" name="title" placeholder="Title" /></fieldset>
+              <fieldset><input id="description" name="description" placeholder="A brief description" /></fieldset>
+            </div>
+            <div class="base">
+              <div class="upload">
+                <input type="file" name="file" id="file" />
+                <button class="ui grey"><i class="icon"></i>Upload</button>
+                <div class="preview"><i class="icon"></i></div>
+              </div>
+              <button id="submit" class="ui green">Submit</button>
+            </div>
+          </form>
+          <footer>
+            <p>We are not responsible for any copyright disputes that may occur
+            as a result of uploading. All content belongs to the user.</p>
+            <p>Made by <a href="//twitter.com/benhowdle">Ben Howdle</a>
+            and <a href="//twitter.com/daryl">Daryl Ginn</a>.</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+</template>

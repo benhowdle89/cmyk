@@ -1,0 +1,31 @@
+/*====================================*\
+  @ Vendor
+\*====================================*/
+
+@mixin vendor($prop, $val) {
+  -webkit-#{$prop} : $val;
+  -moz-#{$prop}    : $val;
+  -ms-#{$prop}     : $val;
+  -o-#{$prop}      : $val;
+  #{$prop}         : $val;
+}
+
+/*====================================*\
+  @ Gradient
+\*====================================*/
+
+@mixin gradient($from, $to) {
+  background-image: -webkit-linear-gradient(top, $to, $from);
+  background-image: -moz-linear-gradient(top, $to, $from);
+  background-image: -o-linear-gradient(top, $to, $from);
+  background-image: -ms-linear-gradient(top, $to, $from);
+  background-image: linear-gradient(top, $to, $from);
+}
+
+/*====================================*\
+  @ Antialiasing
+\*====================================*/
+
+@mixin aa {
+  -webkit-font-smoothing: antialiased;
+}

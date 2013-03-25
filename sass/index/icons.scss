@@ -1,0 +1,182 @@
+/*====================================*\
+  @ Icons
+\*====================================*/
+
+.icons {
+  margin: 20px 0 0;
+  @extend .clear;
+  .circle, .circle:after {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%; }
+  .circle {
+    margin: 0 0 0 27px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    &:after {
+      content: '';
+      display: block;
+      top: 0; left: 0;
+      position: absolute;
+      border: 25px solid #fff;
+      margin: -25px 0 0 -25px;
+    }
+  }
+}
+
+/*====================================*\
+  @ Upload
+\*====================================*/
+
+.icons .upload {
+  margin: 0;
+  background: #F2EFE8;
+  .image {
+    width: 50px;
+    height: 60px;
+    background: $sprite 0 -53px;
+    position: absolute;
+    top: 50%; left: 50%;
+    margin: -30px 0 0 -25px;
+    z-index: 20;
+    @include vendor(animation, image 0.5s both ease);
+    span {
+      margin: 35px 0 0;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      @include aa;
+    }
+  }
+  .arrow {
+    width: 21px;
+    height: 28px;
+    left: 40%;
+    position: absolute;
+    background: $sprite 0 -21px;
+    @include vendor(animation, arrows 5s infinite both linear);
+    &.tiny {
+      opacity: 0.5;
+      @include vendor(transform, scale(0.4));
+    }
+    &.small {
+      opacity: 0.7;
+      @include vendor(transform, scale(0.7));
+    }
+    &.a {
+      left: 3%;
+    }
+    &.b {
+      left: 10%;
+      @include vendor(animation-delay, 3s);
+    }
+    &.c {
+      left: 35%;
+      @include vendor(animation-delay, 4s);
+    }
+    &.d {
+      left: 35%;
+      @include vendor(animation-delay, 1s);
+    }
+    &.e {
+      left: 65%;
+    }
+    &.f {
+      left: 60%;
+      @include vendor(animation-delay, 3s);
+    }
+    &.g {
+      left: 83%;
+      @include vendor(animation-delay, 1.5s);
+    }
+    &.h {
+      left: 90%;
+      @include vendor(animation-delay, 4s);
+    }
+  }
+}
+
+/*====================================*\
+  @ Share
+\*====================================*/
+
+.icons .share {
+  background: #449BB5;
+  .label {
+    width: 66px;
+    height: 27px;
+    color: #fff;
+    padding: 5px 0 0;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    background: $sprite 0 -119px;
+    position: absolute; left: 50%;
+    margin: 0 0 0 -33px;
+    @include aa;
+    @include vendor(animation, label 5s infinite both ease);
+  }
+  .hand {
+    width: 57px;
+    height: 91px;
+    background: $sprite 0 -152px;
+    position: absolute; left: 20px;
+    @include vendor(animation, hand 5s infinite both ease);
+  }
+}
+
+/*====================================*\
+  @ Feedback
+\*====================================*/
+
+.icons .feedback {
+  background: #4EBC75;
+}
+
+/*====================================*\
+  @ Label keyframes
+\*====================================*/
+
+@-webkit-keyframes label {
+  0%   { top: 130px; left: 70%; }
+  10%  { top: 45px;  left: 50%; }
+  90%  { top: 45px;  left: 50%; }
+  100% { top: -49px; left: 50%; }
+}
+
+/*====================================*\
+  @ Hand keyframes
+\*====================================*/
+
+@-webkit-keyframes hand {
+  0%   { top: 126px;  left: 40px; -webkit-transform: rotate(0deg);    }
+  10%,
+  15%  { top: 65px;   left: 20px; -webkit-transform: rotate(0deg);    }
+  20%  { top: 126px;  left: 20px; -webkit-transform: rotate(0deg);    }
+  25%  { left: 150px;             -webkit-transform: rotate(-180deg); }
+  50%  { top: -91px;              }
+  80%  { top: -91px;  left: 40px; }
+  90%  { top: -40px;  left: 20px; }
+  100% { top: -170px; left: 20px; -webkit-transform: rotate(-180deg); }
+}
+
+/*====================================*\
+  @ Keyframes
+\*====================================*/
+
+@-webkit-keyframes arrows {
+  0% { top: 130px; }
+  100% { top: -50px; }
+}
+
+@-webkit-keyframes image {
+  0% { -webkit-transform: scale(0); }
+  70% { -webkit-transform: scale(1.1); }
+  85% { -webkit-transform: scale(0.95); }
+  100% { -webkit-transform: scale(1); }
+}

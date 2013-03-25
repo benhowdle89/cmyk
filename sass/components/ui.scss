@@ -1,0 +1,46 @@
+.ui {
+  height: 37px;
+  padding: 9px 13px;
+  font-weight: 600;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  @include vendor(transition,
+  all 0.075s ease-in-out);
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.05),
+              inset 0 1px 2px rgba(0,0,0,0.3),
+              inset 0 0 0 1px rgba(0,0,0,0.18);
+  &.grey {
+    color: #777;
+    background: #eee;
+    text-shadow: 0 1px 1px rgba(255,255,255,1);
+    @include gradient(rgba(255,255,255,0), rgba(255,255,255,0.7));
+    &:hover {
+      color: #555;
+      background-color: darken(#eee, 5%);
+    }
+    &:active {
+      color: #333;
+      background-color: darken(#eee, 12%);
+    }
+  }
+  &.green {
+    color: #fff;
+    background: #4DBB74;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+    @include gradient(rgba(255,255,255,0), rgba(255,255,255,0.35));
+    &:hover {
+      background-color: darken(saturate(#4DBB74, 10%), 8%);
+    }
+    &:active {
+      background-color: darken(saturate(#4DBB74, 25%), 15%);
+    }
+  }
+  &:active {
+    @include vendor(transition, none);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.1),
+                inset 0 1px 2px rgba(0,0,0,0.35),
+                inset 0 0 0 1px rgba(0,0,0,0.25);
+  }
+}
