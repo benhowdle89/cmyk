@@ -94,6 +94,7 @@ if (Meteor.isClient) {
   };
 
   Template.home.rendered = function() {
+    g_a();
     $('html').addClass('index');
     (function(window, document) {
 
@@ -151,6 +152,7 @@ if (Meteor.isClient) {
   };
 
   Template.item.rendered = function() {
+    g_a();
     $('html').removeClass('index');
     $('.comment-date').each(function() {
       var cDate = $(this);
@@ -189,6 +191,23 @@ if (Meteor.isServer) {
     }
   });
 }
+
+var g_a = function() {
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments);
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-39603860-1', 'cmyk.im');
+  ga('send', 'pageview');
+};
 
 if (Meteor.isClient) {
   Meteor.autorun(function() {
