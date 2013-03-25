@@ -186,9 +186,6 @@ if (Meteor.isServer) {
     },
     'update': function(userId, doc) {
       return true;
-    },
-    'remove': function(userId, doc) {
-      return true;
     }
   });
 }
