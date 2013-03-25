@@ -152,13 +152,14 @@ if (Meteor.isClient) {
 
   Template.item.rendered = function() {
     $('html').removeClass('index');
-    setInterval(function() {
-      $('.comment-date').each(function() {
-        var cDate = $(this);
+    $('.comment-date').each(function() {
+      var cDate = $(this);
+      setInterval(function() {
         var newDate = timeDifference(Date.now(), cDate.attr('data-time'));
         cDate.text(newDate);
-      });
-    }, 1000);
+      }, 1000);
+    });
+
   };
 
 }
