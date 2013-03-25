@@ -5,7 +5,6 @@ if (Meteor.isClient) {
 
   Meteor.Router.add({
     '/': 'home',
-    '/create': 'create',
     '/p/:id': function(id) {
       Session.set('pId', id);
       Items.update({
@@ -16,7 +15,8 @@ if (Meteor.isClient) {
         }
       });
       return 'item';
-    }
+    },
+    '*': '404'
   });
 
   Template.home.events({
