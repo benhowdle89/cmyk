@@ -1,4 +1,5 @@
 Meteor.saveFile = function(blob, title, description) {
+  if(!blob || !title || !description || (typeof blob !== 'string')) return;
   Items.insert({
     image: blob,
     title: title,

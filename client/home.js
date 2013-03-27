@@ -45,7 +45,8 @@ if(Meteor.isClient) {
       },
       bind: function() {
         var self = this;
-        this.button.click(function() {
+        this.button.click(function(e) {
+          e.preventDefault();
           self.file.click();
         });
         this.file.change(function(evt) {
@@ -60,6 +61,10 @@ if(Meteor.isClient) {
         rder = new FileReader();
 
         rder.onload = (function(f) {
+          if(f.size > 5000000){
+            console.log('too big');
+            return;
+          }
           return function(e) {
             self.updatePreview(e.target.result);
           };
