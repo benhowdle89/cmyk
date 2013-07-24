@@ -1,6 +1,6 @@
-if(Meteor.isClient) {
+if (Meteor.isClient) {
 
-/*====================================*\
+  /*====================================*\
   @ Item events
 \*====================================*/
 
@@ -8,8 +8,12 @@ if(Meteor.isClient) {
     'click #submitComment': function() {
       var input = $('#newComment');
       if (input.val().length) {
-        Meteor.saveComment(input.val(), this._id);
-        input.val('');
+        Meteor.call('saveComment', input.val(), this._id, function(error, result) {
+          if (error) {
+            return alert('Sorry, there was an error!');
+          }
+          if(result) input.val('');
+        });
       }
     }
   });
@@ -34,7 +38,7 @@ if(Meteor.isClient) {
     return timeDifference(Date.now(), date);
   };
 
-/*====================================*\
+  /*====================================*\
   @ Item Renders
 \*====================================*/
 
@@ -49,7 +53,7 @@ if(Meteor.isClient) {
     }, 1000);
   };
 
-/*====================================*\
+  /*====================================*\
   @ Helpers
 \*====================================*/
 
